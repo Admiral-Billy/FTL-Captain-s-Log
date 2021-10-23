@@ -1,0 +1,6 @@
+19:04:57.362 [main] DEBUG net.vhati.modmanager.FTLModManager - Started: Wed Oct 20 19:04:57 EDT 2021
+19:04:57.366 [main] DEBUG net.vhati.modmanager.FTLModManager - Slipstream Mod Manager v1.9.1
+19:04:57.366 [main] DEBUG net.vhati.modmanager.FTLModManager - OS: Windows 10 10.0
+19:04:57.366 [main] DEBUG net.vhati.modmanager.FTLModManager - VM: Java HotSpot(TM) 64-Bit Server VM, 1.8.0_261, amd64
+19:04:57.437 [main] INFO  n.vhati.modmanager.cli.SlipstreamCLI - Using FTL dats path from config: C:\Program Files (x86)\Steam\steamapps\common\FTL Faster Than Light
+19:04:57.438 [main] INFO  n.vhati.modmanager.cli.SlipstreamCLI - Extracting dats...
