@@ -7,7 +7,7 @@
     <ProjectGuid>{F56431AC-B6AB-4B98-ABEF-1D88EA7833F0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FTL_Captain_s_Log</RootNamespace>
-    <AssemblyName>FTL Captain%27s Log</AssemblyName>
+    <AssemblyName>FTL Captain_s Log</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -90,14 +90,26 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Unpacker\modman.cfg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Unpacker\modman.exe" />
-    <Content Include="Unpacker\modman.jar" />
+    <Resource Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Unpacker\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

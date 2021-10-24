@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FTL_Captain_s_Log"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FTL: Captain's Log" Height="720" Width="1280" Background="#1E1E1E">
     <Grid>
-        
+        <Menu HorizontalAlignment="Stretch" Height="23" VerticalAlignment="Top" Background="Black">
+            <MenuItem Width="25">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Menu.png" VerticalAlignment="Stretch"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Width="25">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Options.png" VerticalAlignment="Stretch"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
