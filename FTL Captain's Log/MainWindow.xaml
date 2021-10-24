@@ -10,14 +10,15 @@
         <Menu HorizontalAlignment="Stretch" Height="23" VerticalAlignment="Top" Background="Black">
             <MenuItem Width="25">
                 <MenuItem.Icon>
-                    <Image Source="/Resources/Menu.png" VerticalAlignment="Stretch"/>
+                    <Image Source="/Resources/Menu.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Width="25">
+            <MenuItem Width="25" Click="MenuItem_Click">
                 <MenuItem.Icon>
-                    <Image Source="/Resources/Options.png" VerticalAlignment="Stretch"/>
+                    <Image Source="/Resources/Options.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
+        <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome to your log, Captain! Start by opening the menu or searching for something!" VerticalAlignment="Center" FontSize="26"/>
     </Grid>
 </Window>

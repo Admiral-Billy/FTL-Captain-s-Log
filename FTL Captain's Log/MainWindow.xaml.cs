@@ -36,12 +36,33 @@ namespace FTL_Captain_s_Log
                 {
                     File.WriteAllLines(Directory.GetCurrentDirectory() + "\\settings.txt", new string[] { "ftlDatLocation=\"" + openFileDialog.FileName + "\"" });
                     File.WriteAllLines(Directory.GetCurrentDirectory() + "\\unpacker\\modman.cfg", new string[] { "ftl_dats_path=" + openFileDialog.FileName.Replace("\\", "\\\\").Replace("\\ftl.dat", "")});
+
+                    LoadingScreen load = new LoadingScreen();
+                    load.Show();
+                    ProcessStartInfo start = new ProcessStartInfo();
+                    start.Arguments = "--extract-dats .\\unpackedFiles";
+                    start.FileName = ".\\unpacker\\modman.exe";
+                    start.WindowStyle = ProcessWindowStyle.Hidden;
+                    start.CreateNoWindow = true;
+                    using (Process proc = Process.Start(start))
+                    {
+                        proc.WaitForExit();
+                        load.Close();
+                    }
                 }
                 else
                 {
                     System.Windows.Application.Current.Shutdown();
                 }
             }
+            InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e) // options button
+        {
+            LoadingScreen load = new LoadingScreen();
+            this.Hide();
+            load.Show();
             ProcessStartInfo start = new ProcessStartInfo();
             start.Arguments = "--extract-dats .\\unpackedFiles";
             start.FileName = ".\\unpacker\\modman.exe";
@@ -50,8 +71,9 @@ namespace FTL_Captain_s_Log
             using (Process proc = Process.Start(start))
             {
                 proc.WaitForExit();
+                load.Close();
+                this.Show();
             }
-            InitializeComponent();
         }
     }
 }
