@@ -58,7 +58,7 @@ namespace FTL_Captain_s_Log
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e) // options button
+        private void Options_Click(object sender, RoutedEventArgs e) // options button
         {
             LoadingScreen load = new LoadingScreen();
             this.Hide();

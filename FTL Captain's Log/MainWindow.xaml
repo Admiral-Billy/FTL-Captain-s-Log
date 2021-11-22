@@ -11,7 +11,7 @@
             <Button Background="Black">
                 <Image Source="/Resources/Menu.png"/>
             </Button>
-            <Button Background="Black">
+            <Button Background="Black" Click="Options_Click">
                 <Image Source="/Resources/Options.png"/>
             </Button>
             <TextBox Width="100" Text="Search..."></TextBox>
