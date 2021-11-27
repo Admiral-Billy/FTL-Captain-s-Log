@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FTL_Captain_s_Log
 {
 
-    enum StatBoostType
+    public enum StatBoostType
     {
 
     }
@@ -15,22 +15,22 @@ namespace FTL_Captain_s_Log
     public class StatBoost
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
         // Universal stats
-        StatBoostType boostType;
+        public StatBoostType boostType;
     }
 
     public class Crew
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
         // Universal stats
-        bool isDrone = false;
+        public bool isDrone = false;
     }
 
-    enum WeaponType
+    public enum WeaponType
     {
         LASER,
         BEAM,
@@ -42,57 +42,61 @@ namespace FTL_Captain_s_Log
     public class Weapon
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
         // Universal stats
-        WeaponType weaponType = WeaponType.LASER;
-        string blueprintName = "";
-        string weaponName = "";
-        int powerCost = 0;
-        int shotCount = 0;
-        int cooldown = 0;
-        int baseDamage = 0;
-        int extraPersDamage = 0;
-        int extraSysDamage = 0;
-        int ionDamage = 0;
-        int shieldPiercing = 0;
-        int fireChance = 0;
-        int breachChance = 0;
-        int stunChance = 0;
-        List<StatBoost> statBoosts = new List<StatBoost>();
-        List<Crew> spawnedCrew = new List<Crew>();
-        int crewSpawnChance = 0;
-        int missileCost = 0;
-        int scrapCost = 0;
-        int rarity = 0;
-        int shotSpeed = 0;
-        string weaponImage;
-        string explosionImage;
-        List<string> launchSounds = new List<string>();
+        public WeaponType weaponType = WeaponType.LASER;
+        public string blueprintName = "";
+        public string weaponName = "";
+        public string description = "";
+        public int powerCost = 0;
+        public int shotCount = 0;
+        public float cooldown = 0;
+        public int droneTargetability = 0;
+        public int accuracyModifier = 0;
+        public int baseDamage = 0;
+        public int extraPersDamage = 0;
+        public int extraSysDamage = 0;
+        public int ionDamage = 0;
+        public int shieldPiercing = 0;
+        public bool hullBust = false;
+        public int fireChance = 0;
+        public int breachChance = 0;
+        public int stunChance = 0;
+        public List<StatBoost> statBoosts = new List<StatBoost>();
+        public List<Crew> spawnedCrew = new List<Crew>();
+        public int crewSpawnChance = 0;
+        public int missileCost = 0;
+        public int scrapCost = 0;
+        public int rarity = 0;
+        public int shotSpeed = 0;
+        public string weaponImage;
+        public string explosionImage;
+        public List<string> launchSounds = new List<string>();
 
         // Beam stats
-        int length = 1;
+        public int length = 1;
 
         // Burst stats
-        int radius = 0;
-        int projectilesPerShot = 1;
+        public int radius = 0;
+        public int projectilesPerShot = 1;
     }
 
     public class Drone
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
     }
 
     public class Augment
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
-        bool hidden = false;
+        public bool hidden = false;
     }
 
-    enum SystemType
+    public enum SystemType
     {
         SHIELDS,    //0
         ENGINES,    //1
@@ -116,48 +120,48 @@ namespace FTL_Captain_s_Log
 
     public class Door
     {
-        int x = 0;
-        int y = 0;
-        int roomId1 = 1; // -1 for airlocks
-        int roomId2 = 2;
+        public int x = 0;
+        public int y = 0;
+        public int roomId1 = 1; // -1 for airlocks
+        public int roomId2 = 2;
     }
 
     public class Room
     {
-        int roomId = 0;
-        int width = 1;
-        int height = 1;
-        int x = 0;
-        int y = 0;
-        bool resistant = false;
-        List<SystemType> systems = new List<SystemType>();
+        public int roomId = 0;
+        public int width = 1;
+        public int height = 1;
+        public int x = 0;
+        public int y = 0;
+        public bool resistant = false;
+        public List<SystemType> systems = new List<SystemType>();
     }
 
     public class Ship
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
-        string blueprintName = "";
-        string shipName = "";
-        int reactorMax = 25;
-        int startingReactor = 0;
-        int missiles = 0;
-        int droneParts = 0;
-        int fuel = 0;
-        List<Crew> crew = new List<Crew>();
-        List<Weapon> weapons = new List<Weapon>();
-        List<Drone> drones = new List<Drone>();
-        List<Augment> augments = new List<Augment>();
-        List<Room> rooms = new List<Room>();
-        List<Door> doors = new List<Door>();
+        public string blueprintName = "";
+        public string shipName = "";
+        public int reactorMax = 25;
+        public int startingReactor = 0;
+        public int missiles = 0;
+        public int droneParts = 0;
+        public int fuel = 0;
+        public List<Crew> crew = new List<Crew>();
+        public List<Weapon> weapons = new List<Weapon>();
+        public List<Drone> drones = new List<Drone>();
+        public List<Augment> augments = new List<Augment>();
+        public List<Room> rooms = new List<Room>();
+        public List<Door> doors = new List<Door>();
     }
 
     public class Event
     {
         // Internal identifier
-        int id = 0;
+        public int id = 0;
 
-        string eventName = "";
+        public string eventName = "";
     }
 }

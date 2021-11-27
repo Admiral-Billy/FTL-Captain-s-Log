@@ -47,6 +47,7 @@ namespace FTL_Captain_s_Log
                     using (Process proc = Process.Start(start))
                     {
                         proc.WaitForExit();
+                        Database.Parse();
                         load.Close();
                     }
                 }
@@ -71,6 +72,7 @@ namespace FTL_Captain_s_Log
             using (Process proc = Process.Start(start))
             {
                 proc.WaitForExit();
+                Database.Parse();
                 load.Close();
                 this.Show();
             }
