@@ -59,6 +59,11 @@ namespace FTL_Captain_s_Log
             InitializeComponent();
         }
 
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Options_Click(object sender, RoutedEventArgs e) // options button
         {
             LoadingScreen load = new LoadingScreen();
@@ -76,6 +81,11 @@ namespace FTL_Captain_s_Log
                 load.Close();
                 this.Show();
             }
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

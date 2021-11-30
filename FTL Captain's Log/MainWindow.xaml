@@ -7,17 +7,23 @@
         mc:Ignorable="d"
         Title="FTL: Captain's Log" Height="720" Width="1280" Background="#1E1E1E">
     <Grid>
-        <Menu HorizontalAlignment="Stretch" Height="30" VerticalAlignment="Top" Background="Black">
-            <Button Background="Black">
-                <Image Source="/Resources/Menu.png"/>
-            </Button>
-            <Button Background="Black" Click="Options_Click">
-                <Image Source="/Resources/Options.png"/>
-            </Button>
+        <Menu HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Black">
+            <MenuItem ToolTip="Menu" Width="24" Click="Menu_Click">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Menu.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem ToolTip="Options" Width="24" Click="Options_Click">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Options.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
             <TextBox Width="100" Text="Search..."></TextBox>
-            <Button Background="Black">
-                <Image Source="/Resources/Search.png"/>
-            </Button>
+            <MenuItem ToolTip="Search" Width="24" Click="Search_Click">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/Search.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
         </Menu>
         <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome to your log, Captain! Start by opening the menu or searching for something!" VerticalAlignment="Center" FontSize="26"/>
     </Grid>
