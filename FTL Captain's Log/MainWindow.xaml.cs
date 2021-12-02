@@ -39,6 +39,9 @@ namespace FTL_Captain_s_Log
 
                     LoadingScreen load = new LoadingScreen();
                     load.Show();
+                    menu = new Menu();
+                    menu.InitializeComponent();
+                    menu.Visibility = Visibility.Hidden;
                     ProcessStartInfo start = new ProcessStartInfo();
                     start.Arguments = "--extract-dats .\\unpackedFiles";
                     start.FileName = ".\\unpacker\\modman.exe";
@@ -49,6 +52,7 @@ namespace FTL_Captain_s_Log
                         proc.WaitForExit();
                         Database.Parse();
                         load.Close();
+                        menu.Visibility = Visibility.Visible;
                     }
                 }
                 else
@@ -56,36 +60,21 @@ namespace FTL_Captain_s_Log
                     System.Windows.Application.Current.Shutdown();
                 }
             }
-            InitializeComponent();
-        }
-
-        private void Menu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Options_Click(object sender, RoutedEventArgs e) // options button
-        {
-            LoadingScreen load = new LoadingScreen();
-            this.Hide();
-            load.Show();
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.Arguments = "--extract-dats .\\unpackedFiles";
-            start.FileName = ".\\unpacker\\modman.exe";
-            start.WindowStyle = ProcessWindowStyle.Hidden;
-            start.CreateNoWindow = true;
-            using (Process proc = Process.Start(start))
+            else
             {
-                proc.WaitForExit();
+                LoadingScreen load = new LoadingScreen();
+                load.Show();
+                menu = new Menu();
+                menu.InitializeComponent();
+                menu.Visibility = Visibility.Hidden;
+                this.Hide();
                 Database.Parse();
                 load.Close();
-                this.Show();
+                menu.Visibility = Visibility.Visible;
+                this.Visibility = Visibility.Visible;
             }
-        }
-
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-
+            
+            InitializeComponent();
         }
     }
 }

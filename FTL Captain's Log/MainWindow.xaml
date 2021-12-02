@@ -1,4 +1,5 @@
 ﻿<Window x:Class="FTL_Captain_s_Log.MainWindow"
+        xmlns:uc="clr-namespace:FTL_Captain_s_Log"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,24 +8,7 @@
         mc:Ignorable="d"
         Title="FTL: Captain's Log" Height="720" Width="1280" Background="#1E1E1E">
     <Grid>
-        <Menu HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Black">
-            <MenuItem ToolTip="Menu" Width="24" Click="Menu_Click">
-                <MenuItem.Icon>
-                    <Image Source="/Resources/Menu.png"/>
-                </MenuItem.Icon>
-            </MenuItem>
-            <MenuItem ToolTip="Options" Width="24" Click="Options_Click">
-                <MenuItem.Icon>
-                    <Image Source="/Resources/Options.png"/>
-                </MenuItem.Icon>
-            </MenuItem>
-            <TextBox Width="100" Text="Search..."></TextBox>
-            <MenuItem ToolTip="Search" Width="24" Click="Search_Click">
-                <MenuItem.Icon>
-                    <Image Source="/Resources/Search.png"/>
-                </MenuItem.Icon>
-            </MenuItem>
-        </Menu>
         <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome to your log, Captain! Start by opening the menu or searching for something!" VerticalAlignment="Center" FontSize="26"/>
+        <uc:Menu x:Name="menu" Margin="0,0,0,0"/>
     </Grid>
 </Window>
