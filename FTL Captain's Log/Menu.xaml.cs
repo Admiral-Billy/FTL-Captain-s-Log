@@ -47,6 +47,94 @@ namespace FTL_Captain_s_Log
             }
         }
 
+        private void Ships_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new ShipsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Crew_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new CrewPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Weapons_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new WeaponsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Drones_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new DronesPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Augments_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new AugmentsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Events_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new EventsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Sectors_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new SectorsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Sounds_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new SoundsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Lists_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new ListsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Guide_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new GuidePage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
+        private void Commands_Click(object sender, RoutedEventArgs e)
+        {
+            Database.mainWindow.mainGrid.Children.Remove(Database.currentPage);
+            Database.currentPage = new CommandsPage();
+            Database.mainWindow.mainGrid.Children.Add(Database.currentPage);
+            menu.Visibility = Visibility.Hidden;
+        }
+
         private void Options_Click(object sender, RoutedEventArgs e)
         {
             if (options.Visibility == Visibility.Visible)

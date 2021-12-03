@@ -75,6 +75,9 @@ namespace FTL_Captain_s_Log
             }
             
             InitializeComponent();
+            Database.mainWindow = this;
+            Database.currentPage = new DefaultPage();
+            mainGrid.Children.Add(Database.currentPage);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
 
 namespace FTL_Captain_s_Log
@@ -16,6 +17,8 @@ namespace FTL_Captain_s_Log
         public static List<Ship> allShips = new List<Ship>();
         public static List<StatBoost> allStatBoosts = new List<StatBoost>();
         public static List<Event> allEvents = new List<Event>();
+        public static MainWindow mainWindow;
+        public static UIElement currentPage;
 
         public static void Parse()
         {

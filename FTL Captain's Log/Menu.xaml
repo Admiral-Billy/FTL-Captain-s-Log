@@ -27,17 +27,17 @@
             </MenuItem>
         </Menu>
         <Grid Name="menu" Background="Black" Width="95" Margin="0,20,0,0" HorizontalAlignment="Left">
-            <Button Content="Ships" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Crew" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Weapons" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Drones" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Augments" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Events" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Sectors" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Sounds" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Lists" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Commands" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75"/>
-            <Button Content="Mod Guide" HorizontalAlignment="Left" Margin="10,0,0,35" VerticalAlignment="Bottom" Width="75"/>
+            <Button Content="Ships" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Ships_Click"/>
+            <Button Content="Crew" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Click="Crew_Click"/>
+            <Button Content="Weapons" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75" Click="Weapons_Click"/>
+            <Button Content="Drones" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="75" Click="Drones_Click"/>
+            <Button Content="Augments" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="75" Click="Augments_Click"/>
+            <Button Content="Events" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="75" Click="Events_Click"/>
+            <Button Content="Sectors" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="75" Click="Sectors_Click"/>
+            <Button Content="Sounds" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="75" Click="Sounds_Click"/>
+            <Button Content="Lists" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="75" Click="Lists_Click"/>
+            <Button Content="Commands" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="Commands_Click"/>
+            <Button Content="Mod Guide" HorizontalAlignment="Left" Margin="10,0,0,35" VerticalAlignment="Bottom" Width="75" Click="Guide_Click"/>
         </Grid>
         <Grid Name="options" Background="Black" Width="300" Margin="25,20,0,0" HorizontalAlignment="Left">
             <Button Content="Rescan FTL.dat (This will take some time)" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="234" Click="Rescan_Click"/>

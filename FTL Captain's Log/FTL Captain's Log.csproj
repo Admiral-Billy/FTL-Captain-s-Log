@@ -55,7 +55,72 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AugmentsPage.xaml.cs">
+      <DependentUpon>AugmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommandsPage.xaml.cs">
+      <DependentUpon>CommandsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrewPage.xaml.cs">
+      <DependentUpon>CrewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="DronesPage.xaml.cs">
+      <DependentUpon>DronesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventsPage.xaml.cs">
+      <DependentUpon>EventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GuidePage.xaml.cs">
+      <DependentUpon>GuidePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListsPage.xaml.cs">
+      <DependentUpon>ListsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SectorsPage.xaml.cs">
+      <DependentUpon>SectorsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShipsPage.xaml.cs">
+      <DependentUpon>ShipsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SoundsPage.xaml.cs">
+      <DependentUpon>SoundsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WeaponsPage.xaml.cs">
+      <DependentUpon>WeaponsPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AugmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommandsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DefaultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DronesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuidePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoadingScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +134,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Containers.cs" />
+    <Compile Include="DefaultPage.xaml.cs">
+      <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoadingScreen.xaml.cs">
       <DependentUpon>LoadingScreen.xaml</DependentUpon>
     </Compile>
@@ -77,6 +145,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SectorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShipsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SoundsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WeaponsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
