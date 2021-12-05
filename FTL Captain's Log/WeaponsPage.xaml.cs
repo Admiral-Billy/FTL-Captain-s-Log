@@ -36,6 +36,8 @@ namespace FTL_Captain_s_Log
                 string newText = "";
                 Weapon weapon = Database.allWeapons[WeaponBox.SelectedIndex];
 
+                newText += weapon.weaponName + "\n\n";
+
                 newText += "Required Power: " + weapon.powerCost + "\n";
                 newText += "Charge Time: " + weapon.cooldown + " seconds\n";
                 if (weapon.missileCost != 0)
@@ -47,12 +49,14 @@ namespace FTL_Captain_s_Log
                 newText += "Projectiles Per Shot: " + weapon.projectilesPerShot + "\n";
                 newText += "\n";
 
+                if (weapon.baseDamage != 0)
                 newText += "Hull Damage: " + weapon.baseDamage + "\n";
                 newText += "System Damage: TBD\n";
                 newText += "Crew Damage: TBD\n";
                 newText += "\n";
 
                 newText += "Locks down rooms on hit\n";
+                if (weapon.fireChance != 0)
                 newText += "Fire Chance: " + weapon.fireChance * 10 + "%\n";
                 newText += "Affliction Chance: TBD\n";
                 newText += "\n";
