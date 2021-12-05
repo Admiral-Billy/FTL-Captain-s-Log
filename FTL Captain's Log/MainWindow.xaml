@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FTL_Captain_s_Log"
         mc:Ignorable="d"
-        Title="FTL: Captain's Log" Height="720" Width="1280" Background="#1E1E1E">
+        Title="FTL: Captain's Log" Height="720" Width="1280" Background="#1E1E1E" Icon="log.ico">
     <Grid Name="mainGrid">
         <uc:Menu x:Name="menu" Margin="0,0,0,0" Panel.ZIndex="5"/>
     </Grid>

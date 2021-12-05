@@ -9,6 +9,11 @@
 
     <Grid Name="everything">
         <Menu HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Black">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
             <MenuItem ToolTip="Menu" Width="24" Click="Menu_Click">
                 <MenuItem.Icon>
                     <Image Source="/Resources/Menu.png"/>
@@ -23,6 +28,11 @@
             <MenuItem ToolTip="Search" Width="24" Click="Search_Click">
                 <MenuItem.Icon>
                     <Image Source="/Resources/Search.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem ToolTip="About FTL Captain's Log" Width="24" Click="About_Click" HorizontalAlignment="Right">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/About.png"/>
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>

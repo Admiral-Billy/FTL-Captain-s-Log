@@ -184,6 +184,11 @@ namespace FTL_Captain_s_Log
                 }
             }
         }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
