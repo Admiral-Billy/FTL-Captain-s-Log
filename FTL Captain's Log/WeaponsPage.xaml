@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FTL_Captain_s_Log"
+             xmlns:input="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid Background="#1E1E1E">
-        <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Weapons page" VerticalAlignment="Center" FontSize="26"/>
+        <TextBlock Name="WeaponStats" Foreground="White" HorizontalAlignment="Center" Margin="0,250,0,0" TextWrapping="Wrap" Text="Welcome to the Weapons Page. Select a weapon to see its stats!" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="WeaponBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="730" Margin="0,200,0,0" IsEditable="True" SelectionChanged="Weapon_Selected"/>
     </Grid>
 </UserControl>

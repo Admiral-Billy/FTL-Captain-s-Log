@@ -23,6 +23,48 @@ namespace FTL_Captain_s_Log
         public WeaponsPage()
         {
             InitializeComponent();
+            for (int i = 0; i < Database.allWeapons.Count; ++i)
+            {
+                WeaponBox.Items.Add(Database.allWeapons[i].blueprintName);
+            }
+        }
+
+        private void Weapon_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            if (WeaponBox.SelectedIndex != -1)
+            {
+                string newText = "";
+                Weapon weapon = Database.allWeapons[WeaponBox.SelectedIndex];
+
+                newText += "Required Power: " + weapon.powerCost + "\n";
+                newText += "Charge Time: " + weapon.cooldown + " seconds\n";
+                if (weapon.missileCost != 0)
+                newText += "Missile Consumption: " + weapon.missileCost + "\n";
+                newText += "\n";
+
+                newText += "Shots Per Charge: " + weapon.shotCount + "\n";
+                if (weapon.projectilesPerShot > 1)
+                newText += "Projectiles Per Shot: " + weapon.projectilesPerShot + "\n";
+                newText += "\n";
+
+                newText += "Hull Damage: " + weapon.baseDamage + "\n";
+                newText += "System Damage: TBD\n";
+                newText += "Crew Damage: TBD\n";
+                newText += "\n";
+
+                newText += "Locks down rooms on hit\n";
+                newText += "Fire Chance: " + weapon.fireChance * 10 + "%\n";
+                newText += "Affliction Chance: TBD\n";
+                newText += "\n";
+
+                newText += "Buy/Sell Price: " + weapon.scrapCost + "/" + weapon.scrapCost / 2 + "\n";
+
+                WeaponStats.Text = newText;
+            }
+            else
+            {
+                WeaponStats.Text = "Weapon blueprint not found.";
+            }
         }
     }
 }
