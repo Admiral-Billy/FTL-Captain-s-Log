@@ -97,6 +97,10 @@ namespace FTL_Captain_s_Log
                             {
                                 weapon.extraSysDamage = int.Parse(reader.ReadElementContentAsString());
                             }
+                            else if (reader.Name == "ion")
+                            {
+                                weapon.ionDamage = int.Parse(reader.ReadElementContentAsString());
+                            }
                             else if (reader.Name == "sp")
                             {
                                 weapon.shieldPiercing = int.Parse(reader.ReadElementContentAsString());
@@ -109,9 +113,17 @@ namespace FTL_Captain_s_Log
                             {
                                 weapon.missileCost = int.Parse(reader.ReadElementContentAsString());
                             }
+                            else if (reader.Name == "length")
+                            {
+                                weapon.length = int.Parse(reader.ReadElementContentAsString());
+                            }
                             else if (reader.Name == "shots")
                             {
                                 weapon.shotCount = int.Parse(reader.ReadElementContentAsString());
+                            }
+                            else if (reader.Name == "chargeLevels")
+                            {
+                                weapon.chargeCount = int.Parse(reader.ReadElementContentAsString());
                             }
                             else if (reader.Name == "fireChance")
                             {
@@ -125,13 +137,22 @@ namespace FTL_Captain_s_Log
                             {
                                 weapon.stunChance = int.Parse(reader.ReadElementContentAsString());
                             }
+                            else if (reader.Name == "stun")
+                            {
+                                weapon.stunChance = 10;
+                                weapon.stunLength = int.Parse(reader.ReadElementContentAsString());
+                            }
                             else if (reader.Name == "cooldown")
                             {
                                 weapon.cooldown = float.Parse(reader.ReadElementContentAsString());
                             }
-                            else if (reader.Name == "hullbust")
+                            else if (reader.Name == "hullBust")
                             {
-                                weapon.hullBust = bool.Parse(reader.ReadElementContentAsString());
+                                weapon.hullBust = Convert.ToBoolean(int.Parse(reader.ReadElementContentAsString()));
+                            }
+                            else if (reader.Name == "lockdown")
+                            {
+                                weapon.lockdown = Convert.ToBoolean(int.Parse(reader.ReadElementContentAsString()));
                             }
                             else if (reader.Name == "power")
                             {
@@ -144,6 +165,16 @@ namespace FTL_Captain_s_Log
                             else if (reader.Name == "rarity")
                             {
                                 weapon.rarity = int.Parse(reader.ReadElementContentAsString());
+                            }
+                            else if (reader.Name == "boost")
+                            {
+                                reader.Read();
+                                if (reader.ReadElementContentAsString() == "damage")
+                                {
+                                    weapon.chainType = ChainType.DAMAGE;
+                                }
+                                weapon.chainAmount = float.Parse(reader.ReadElementContentAsString());
+                                weapon.chainCap = int.Parse(reader.ReadElementContentAsString());
                             }
                             else if (reader.Name == "weaponArt")
                             {
