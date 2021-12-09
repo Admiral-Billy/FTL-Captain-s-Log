@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,30 @@ namespace FTL_Captain_s_Log
         public WeaponsPage()
         {
             InitializeComponent();
+            var sorted = Database.allWeapons.OrderBy(weapon => weapon.weaponName).ToArray();
             for (int i = 0; i < Database.allWeapons.Count; ++i)
             {
-                WeaponBox.Items.Add(Database.allWeapons[i].blueprintName);
+                WeaponBox.Items.Add(sorted[i].weaponName + " (Blueprint Name: " + sorted[i].blueprintName + ")");
+            }
+        }
+
+        private void Use_Blueprint(object sender, RoutedEventArgs e)
+        {
+            WeaponBox.Items.Clear();
+            var sorted = Database.allWeapons.OrderBy(weapon => weapon.blueprintName).ToArray();
+            for (int i = 0; i < Database.allWeapons.Count; ++i)
+            {
+                WeaponBox.Items.Add(sorted[i].blueprintName + " (Weapon Name: " + sorted[i].weaponName + ")");
+            }
+        }
+
+        private void Use_Name(object sender, RoutedEventArgs e)
+        {
+            WeaponBox.Items.Clear();
+            var sorted = Database.allWeapons.OrderBy(weapon => weapon.weaponName).ToArray();
+            for (int i = 0; i < Database.allWeapons.Count; ++i)
+            {
+                WeaponBox.Items.Add(sorted[i].weaponName + " (Blueprint Name: " + sorted[i].blueprintName + ")");
             }
         }
 
@@ -34,9 +56,19 @@ namespace FTL_Captain_s_Log
             if (WeaponBox.SelectedIndex != -1)
             {
                 string newText = "";
-                Weapon weapon = Database.allWeapons[WeaponBox.SelectedIndex];
+                Weapon[] sorted;
+                if ((bool)UseBlueprint.IsChecked)
+                {
+                    sorted = Database.allWeapons.OrderBy(weaponData => weaponData.blueprintName).ToArray();
+                }
+                else
+                {
+                    sorted = Database.allWeapons.OrderBy(weaponData => weaponData.weaponName).ToArray();
+                }
+                Weapon weapon = sorted[WeaponBox.SelectedIndex];
 
-                newText += weapon.weaponName + " (" + weapon.weaponType.ToString() + ")\n\n";
+                if (weapon.cooldown >= 0)
+                newText += "Weapon Type: " + weapon.weaponType.ToString() + "\n\n";
 
                 if (weapon.powerCost >= 0)
                 {
@@ -156,7 +188,7 @@ namespace FTL_Captain_s_Log
                     if (weapon.stunChance != 0)
                         newText += "Stun Chance: " + weapon.stunChance * 10 + "% (" + weapon.stunLength + " seconds long)\n";
                     if (weapon.statBoostChance != 0)
-                        newText += "Affliction Chance: " + weapon.statBoostChance + "%\n";
+                        newText += "Stat Boost Chance: " + weapon.statBoostChance + "%\n";
                     if (weapon.crewSpawnChance != 0)
                         newText += "Crew Spawn Chance: " + weapon.crewSpawnChance + "%\n";
                     if (newText.EndsWith("\n\n"))
@@ -172,7 +204,8 @@ namespace FTL_Captain_s_Log
                 }
                 else
                 {
-                    newText += "Cannot fire shots\n";
+                    newText += "Cannot fire shots\n\n";
+                    newText += "Buy/Sell Price: " + weapon.scrapCost + "/" + weapon.scrapCost / 2 + " scrap\n";
                 }
 
                 WeaponStats.Text = newText;

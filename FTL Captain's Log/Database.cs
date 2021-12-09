@@ -17,6 +17,7 @@ namespace FTL_Captain_s_Log
         public static List<Ship> allShips = new List<Ship>();
         public static List<StatBoost> allStatBoosts = new List<StatBoost>();
         public static List<Event> allEvents = new List<Event>();
+        public static Dictionary<string, string> allTextIds = new Dictionary<string, string>();
         public static MainWindow mainWindow;
         public static UIElement currentPage;
 
@@ -28,7 +29,8 @@ namespace FTL_Captain_s_Log
             ParseAugments();
             ParseShips();
             ParseStatBoosts();
-            ParseEvents();
+            //ParseEvents();
+            //ParseTextIDs();
         }
 
         public static void ParseCrew()
@@ -71,7 +73,7 @@ namespace FTL_Captain_s_Log
                             }
                             else if (reader.Name == "title")
                             {
-                                weapon.weaponName = reader.ReadElementContentAsString(); // TODO: handle text IDs and account for duplicates
+                                weapon.weaponName = reader.ReadElementContentAsString(); // TODO: handle text IDs, probably by parsing them separately then using dictionary
                             }
                             else if (reader.Name == "desc")
                             {
@@ -120,6 +122,10 @@ namespace FTL_Captain_s_Log
                             else if (reader.Name == "shots")
                             {
                                 weapon.shotCount = int.Parse(reader.ReadElementContentAsString());
+                            }
+                            else if (reader.Name == "radius")
+                            {
+                                weapon.radius = int.Parse(reader.ReadElementContentAsString());
                             }
                             else if (reader.Name == "chargeLevels")
                             {
@@ -220,7 +226,20 @@ namespace FTL_Captain_s_Log
                             }
 
                             if (weapon.blueprintName != "") // weapons can't be nameless, so a nameless weapon is a fake weapon that slipped through somehow
-                            allWeapons.Add(weapon);
+                            {
+                                bool found = false;
+                                for (int i = 0; i < allWeapons.Count; ++i)
+                                {
+                                    if (allWeapons[i].blueprintName == weapon.blueprintName)
+                                    {
+                                        allWeapons[i] = weapon; // only last version of weapon is relevant for what shows up ingame
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                                if (!found)
+                                allWeapons.Add(weapon);
+                            }
                         }
                     }
                 }
@@ -249,7 +268,39 @@ namespace FTL_Captain_s_Log
 
         public static void ParseEvents()
         {
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;
+            settings.IgnoreWhitespace = true;
 
+            XmlReader reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\events.xml", settings);
+
+            while (reader.Read())
+            {
+                if (reader.NodeType != XmlNodeType.EndElement && reader.Name == "event")
+                {
+                    Event FTLevent = new Event();
+                    bool exit = false;
+
+                    reader.MoveToAttribute("name");
+                    FTLevent.eventName = reader.Value;
+                    reader.MoveToElement();
+
+                    while (!exit)
+                    {
+                        if (reader.NodeType != XmlNodeType.EndElement)
+                        {
+
+                        }
+                    }
+                }
+            }
+
+            reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);
+
+            while (reader.Read())
+            {
+                // read the hyperspace event data somehow and put it into the original, maybe use something besides a list (map or dictionary?) for everything so it's efficient? (allEvents["STORAGE_CHECK"] as an example?
+            }
         }
     }
 }

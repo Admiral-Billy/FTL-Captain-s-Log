@@ -177,5 +177,7 @@ namespace FTL_Captain_s_Log
         public int id = 0;
 
         public string eventName = "";
+        public List<Event> childEvents = new List<Event>();
+        bool unique = false;
     }
 }
