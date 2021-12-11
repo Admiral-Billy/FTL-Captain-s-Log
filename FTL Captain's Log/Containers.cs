@@ -14,9 +14,6 @@ namespace FTL_Captain_s_Log
 
     public class StatBoost
     {
-        // Internal identifier
-        public int id = 0;
-
         // Universal stats
         public StatBoostType boostType;
     }
@@ -29,9 +26,6 @@ namespace FTL_Captain_s_Log
 
     public class Crew
     {
-        // Internal identifier
-        public int id = 0;
-
         // Universal stats
         public bool isDrone = false;
     }
@@ -47,14 +41,13 @@ namespace FTL_Captain_s_Log
 
     public class Weapon
     {
-        // Internal identifier
-        public int id = 0;
-
         // Universal stats
         public WeaponType weaponType = WeaponType.LASER;
         public string blueprintName = "";
         public string weaponName = "";
+        public string weaponNameId = "";
         public string description = "";
+        public string descriptionId = "";
         public int powerCost = 0;
         public int shotCount = 0;
         public int chargeCount = 1;
@@ -98,15 +91,11 @@ namespace FTL_Captain_s_Log
 
     public class Drone
     {
-        // Internal identifier
-        public int id = 0;
+
     }
 
     public class Augment
     {
-        // Internal identifier
-        public int id = 0;
-
         public bool hidden = false;
     }
 
@@ -153,11 +142,9 @@ namespace FTL_Captain_s_Log
 
     public class Ship
     {
-        // Internal identifier
-        public int id = 0;
-
         public string blueprintName = "";
         public string shipName = "";
+        public string shipNameId = "";
         public int reactorMax = 25;
         public int startingReactor = 0;
         public int missiles = 0;
@@ -171,13 +158,72 @@ namespace FTL_Captain_s_Log
         public List<Door> doors = new List<Door>();
     }
 
+    public enum AutoRewardAmount
+    {
+        LOW,
+        MED,
+        HIGH,
+        RANDOM
+    }
+
+    public enum AutoRewardType
+    {
+        standard,
+        stuff,
+        fuel,
+        missiles,
+        droneparts,
+        fuel_only,
+        scrap_only,
+        missiles_only,
+        droneparts_only,
+        weapon,
+        drone,
+        augment,
+        item
+    }
+
+    public class Choice
+    {
+        public string req = "";
+        public int minReqLevel = 0;
+        public int maxReqLevel = 0;
+        public int maxGroup = 0;
+        public bool hidden = false;
+        public bool blue = false;
+        public string text = "";
+        public string textId = "";
+        public Event choiceEvent;
+        public bool changeShipHostility = false;
+        public bool newHostility = false;
+    }
+
     public class Event
     {
-        // Internal identifier
-        public int id = 0;
-
         public string eventName = "";
-        public List<Event> childEvents = new List<Event>();
-        bool unique = false;
+        public bool unique = false;
+        public bool isList = false;
+        public List<Event> otherListEvents = new List<Event>();
+        public Event questEvent;
+        public Ship ship;
+        public bool hostile = false;
+        public AutoRewardType autoRewardType = AutoRewardType.standard;
+        public AutoRewardAmount autoRewardAmount = AutoRewardAmount.MED;
+        public bool stealResources = false;
+        public int scrapModifierMin = 0;
+        public int scrapModifierMax = 0;
+        public int missilesModifierMin = 0;
+        public int missilesModifierMax = 0;
+        public int dronePartsModifierMin = 0;
+        public int dronePartsModifierMax = 0;
+        public int fuelModifierMin = 0;
+        public int fuelModifierMax = 0;
+        public Weapon weaponReward;
+        public Drone droneReward;
+        public Augment augmentReward;
+        public string removedEquipmentName = "";
+        public List<int> damageToShip = new List<int>();
+        public List<string> damagedRooms = new List<string>();
+        public List<string> damageEffects = new List<string>();
     }
 }
