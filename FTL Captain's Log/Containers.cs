@@ -158,6 +158,18 @@ namespace FTL_Captain_s_Log
         public List<Door> doors = new List<Door>();
     }
 
+    public enum EnvironmentType
+    {
+        sun,
+        nebula,
+        storm,
+        asteroid,
+        pulsar,
+        PDS_ENEMY,
+        PDS_PLAYER,
+        PDS_BOTH
+    }
+
     public enum AutoRewardAmount
     {
         LOW,
@@ -203,6 +215,7 @@ namespace FTL_Captain_s_Log
         public string eventName = "";
         public bool unique = false;
         public bool isList = false;
+        public List<Choice> choices = new List<Choice>();
         public List<Event> otherListEvents = new List<Event>();
         public Event questEvent;
         public Ship ship;
@@ -225,5 +238,29 @@ namespace FTL_Captain_s_Log
         public List<int> damageToShip = new List<int>();
         public List<string> damagedRooms = new List<string>();
         public List<string> damageEffects = new List<string>();
+        public Crew crewReward;
+        public int crewRewardLevel = 0;
+        public string crewRewardSkills = "all_skills";
+        public bool removeCrew = false;
+        public string removeCrewRace = "";
+        public bool removeCrewClone = true;
+        public bool boarders = false;
+        public int boardersMin = 0;
+        public int boardersMax = 0;
+        public string boardersRace = "";
+        public SystemType upgradeSystem;
+        public int upgradeSystemAmount = 0;
+        public SystemType installSystem;
+        public EnvironmentType environmentType;
+        public bool revealMap = false;
+        public bool distressBeacon = false;
+        public bool spawnStore = false;
+        public bool repairBeacon = false;
+        public int modifyPursuitAmount = 0; // negative is a fleet slowdown, positive is a speedup
+        public string backgroundImage = "";
+        public string planetImage = "";
+        public string fleetPresence = ""; // without hyperspace, can be rebel, fed, or battle (which is both)
+        public int unlockShipId = 0; // only applies to vanilla ships
+        public bool secretSectorWarp = false;
     }
 }

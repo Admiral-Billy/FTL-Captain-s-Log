@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid Background="#1E1E1E">
-        <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Events page" VerticalAlignment="Center" FontSize="26"/>
+        <TextBlock Name="EventText" Foreground="White" HorizontalAlignment="Center" Margin="0,250,0,0" TextWrapping="Wrap" Text="Welcome to the Events Page. Select an event to see choices/outcomes!" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="EventBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="730" Margin="0,200,0,0" IsEditable="True" SelectionChanged="Event_Selected"/>
     </Grid>
 </UserControl>

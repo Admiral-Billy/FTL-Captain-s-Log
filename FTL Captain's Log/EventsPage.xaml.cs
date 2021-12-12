@@ -23,6 +23,16 @@ namespace FTL_Captain_s_Log
         public EventsPage()
         {
             InitializeComponent();
+            var sorted = Database.allEvents.OrderBy(FTLevent => FTLevent.eventName).ToArray();
+            for (int i = 0; i < Database.allWeapons.Count; ++i)
+            {
+                EventBox.Items.Add(sorted[i].eventName);
+            }
+        }
+
+        private void Event_Selected(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

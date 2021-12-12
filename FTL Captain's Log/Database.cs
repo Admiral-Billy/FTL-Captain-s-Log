@@ -29,7 +29,7 @@ namespace FTL_Captain_s_Log
             ParseAugments();
             ParseShips();
             ParseStatBoosts();
-            //ParseEvents();
+            ParseEvents();
             //ParseTextIDs();
         }
 
@@ -281,26 +281,28 @@ namespace FTL_Captain_s_Log
                     Event FTLevent = new Event();
                     bool exit = false;
 
-                    reader.MoveToAttribute("name");
-                    FTLevent.eventName = reader.Value;
-                    reader.MoveToElement();
-
-                    while (!exit)
+                    FTLevent.eventName = reader.GetAttribute("name");
+                    if (FTLevent.eventName != null)
                     {
-                        if (reader.NodeType != XmlNodeType.EndElement)
-                        {
+                        /*                    while (!exit)
+                                            {
+                                                if (reader.NodeType != XmlNodeType.EndElement)
+                                                {
 
-                        }
+                                                }
+                                            }*/
+
+                        Database.allEvents.Add(FTLevent);
                     }
                 }
             }
 
-            reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);
+            //reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);
 
-            while (reader.Read())
-            {
+            //while (reader.Read())
+            //{
                 // read the hyperspace event data somehow and put it into the original, maybe use something besides a list (map or dictionary?) for everything so it's efficient? (allEvents["STORAGE_CHECK"] as an example?
-            }
+            //}
         }
     }
 }
