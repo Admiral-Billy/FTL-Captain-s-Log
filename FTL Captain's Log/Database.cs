@@ -291,15 +291,41 @@ namespace FTL_Captain_s_Log
                             FTLevent.eventName = reader.GetAttribute("name");
                             if (FTLevent.eventName != null)
                             {
-                                /*                            while (!exit)
-                                                            {
-                                                                if (reader.NodeType != XmlNodeType.EndElement)
-                                                                {
+                                while (!exit)
+                                {
+                                    if (reader.NodeType != XmlNodeType.EndElement)
+                                    {
+                                        if (reader.Name == "text" && reader.Depth == 2)
+                                        {
+                                            FTLevent.eventText = reader.ReadElementContentAsString();
+                                        }
+                                        else
+                                        {
+                                            reader.Read();
+                                        }
+                                    }
+                                    else if (reader.Name != "event")
+                                    {
+                                        reader.Read();
+                                    }
+                                    else
+                                    {
+                                        exit = true;
+                                    }
+                                }
 
-                                                                }
-                                                            }*/
-
-                                Database.allEvents.Add(FTLevent);
+                                bool found = false;
+                                for (int j = 0; j < allEvents.Count; ++j)
+                                {
+                                    if (allEvents[j].eventName == FTLevent.eventName)
+                                    {
+                                        allEvents[j] = FTLevent; // only last version of event is relevant for what shows up ingame
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                                if (!found)
+                                allEvents.Add(FTLevent);
                             }
                         }
                     }

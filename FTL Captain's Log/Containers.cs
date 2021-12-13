@@ -216,6 +216,7 @@ namespace FTL_Captain_s_Log
     public class Event
     {
         public string eventName = "";
+        public string eventText = "";
         public bool unique = false;
         public bool isList = false;
         public List<Choice> choices = new List<Choice>();

@@ -32,7 +32,21 @@ namespace FTL_Captain_s_Log
 
         private void Event_Selected(object sender, SelectionChangedEventArgs e)
         {
+            if (EventBox.SelectedIndex != -1)
+            {
+                string newText = "";
+                Event[] sorted;
+                sorted = Database.allEvents.OrderBy(eventName => eventName.eventName).ToArray();
+                Event FTLevent = sorted[EventBox.SelectedIndex];
 
+                newText += FTLevent.eventText;
+
+                EventText.Text = newText;
+            }
+            else
+            {
+                EventText.Text = "Event not found.";
+            }
         }
     }
 }

@@ -9,5 +9,7 @@
     <Grid Background="#1E1E1E">
         <TextBlock Name="EventText" Foreground="White" HorizontalAlignment="Center" Margin="0,250,0,0" TextWrapping="Wrap" Text="Welcome to the Events Page. Select an event to see choices/outcomes!" VerticalAlignment="Top" FontSize="16"/>
         <ComboBox Name="EventBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="730" Margin="0,200,0,0" IsEditable="True" SelectionChanged="Event_Selected"/>
+        <Image HorizontalAlignment="Right" Height="75" Margin="0,150,95,0" VerticalAlignment="Top" Width="73" Source="/Resources/About.png" ToolTipService.ShowDuration="12000" ToolTip="Rewards:&#x0a;&#x0a;Standard: A bit of everything, primarily scrap; sometimes includes equipment.&#x0a;Stuff: A bit of everything, primarily resources; sometimes includes equipment.&#x0a;Fuel: Gives fuel and scrap.&#x0a;Missiles: Gives missiles and scrap.&#x0a;Drone Parts: Gives drone parts and scrap.&#x0a;Each of the above resource rewards also has an 'only' variant with only the resource.&#x0a;&#x0a;Weapon: Standard reward + a guaranteed weapon.&#x0a;Drone: Standard reward + a guaranteed drone.&#x0a;Augment: Standard reward + a guaranteed augment.&#x0a;Item: Standard reward + a guaranteed piece of equipment.&#x0a;&#x0a;Each of the above has a LOW/MED/HIGH/RANDOM amount as well."/>
+        <TextBlock HorizontalAlignment="Right"  Foreground="White" Margin="0,125,60,0" TextWrapping="Wrap" Text="Mouse-over Legend" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </UserControl>
