@@ -24,7 +24,7 @@ namespace FTL_Captain_s_Log
         {
             InitializeComponent();
             var sorted = Database.allEvents.OrderBy(FTLevent => FTLevent.eventName).ToArray();
-            for (int i = 0; i < Database.allWeapons.Count; ++i)
+            for (int i = 0; i < Database.allEvents.Count; ++i)
             {
                 EventBox.Items.Add(sorted[i].eventName);
             }

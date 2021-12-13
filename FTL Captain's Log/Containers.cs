@@ -156,6 +156,9 @@ namespace FTL_Captain_s_Log
         public List<Augment> augments = new List<Augment>();
         public List<Room> rooms = new List<Room>();
         public List<Door> doors = new List<Door>();
+        public string surrenderEvent = "";
+        public string crewKillEvent = "";
+        public string destroyShipEvent = "";
     }
 
     public enum EnvironmentType

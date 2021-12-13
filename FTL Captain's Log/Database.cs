@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -272,37 +273,49 @@ namespace FTL_Captain_s_Log
             settings.IgnoreComments = true;
             settings.IgnoreWhitespace = true;
 
-            XmlReader reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\events.xml", settings);
-
-            while (reader.Read())
+            DirectoryInfo myDirectory = new DirectoryInfo(@".\\Unpacker\\unpackedFiles\\data");
+            FileInfo[] eventFiles = myDirectory.GetFiles("events???????????????????????????????.xml");
+            for (int i = 0; i < eventFiles.Length; ++i)
             {
-                if (reader.NodeType != XmlNodeType.EndElement && reader.Name == "event")
+                XmlReader reader = XmlReader.Create(eventFiles[i].FullName, settings);
+
+                try
                 {
-                    Event FTLevent = new Event();
-                    bool exit = false;
-
-                    FTLevent.eventName = reader.GetAttribute("name");
-                    if (FTLevent.eventName != null)
+                    while (reader.Read())
                     {
-                        /*                    while (!exit)
-                                            {
-                                                if (reader.NodeType != XmlNodeType.EndElement)
-                                                {
+                        if (reader.NodeType != XmlNodeType.EndElement && reader.Name == "event")
+                        {
+                            Event FTLevent = new Event();
+                            bool exit = false;
 
-                                                }
-                                            }*/
+                            FTLevent.eventName = reader.GetAttribute("name");
+                            if (FTLevent.eventName != null)
+                            {
+                                /*                            while (!exit)
+                                                            {
+                                                                if (reader.NodeType != XmlNodeType.EndElement)
+                                                                {
 
-                        Database.allEvents.Add(FTLevent);
+                                                                }
+                                                            }*/
+
+                                Database.allEvents.Add(FTLevent);
+                            }
+                        }
                     }
                 }
-            }
+                catch (XmlException e)
+                {
+                    // invalid file, but that's fine
+                }
 
-            //reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);
+                //reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);
 
-            //while (reader.Read())
-            //{
+                //while (reader.Read())
+                //{
                 // read the hyperspace event data somehow and put it into the original, maybe use something besides a list (map or dictionary?) for everything so it's efficient? (allEvents["STORAGE_CHECK"] as an example?
-            //}
+                //}
+            }
         }
     }
 }
