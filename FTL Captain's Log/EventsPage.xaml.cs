@@ -41,6 +41,8 @@ namespace FTL_Captain_s_Log
 
                 newText += FTLevent.eventText;
 
+                newText += "\n\n(PLACEHOLDER) Rewards: 20 scrap, 2 missiles, 2 fuel, and Havoceizer (weapon).";
+
                 EventText.Text = newText;
             }
             else

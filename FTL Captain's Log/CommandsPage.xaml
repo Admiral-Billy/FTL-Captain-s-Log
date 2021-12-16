@@ -7,6 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid Background="#1E1E1E">
-        <TextBlock Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Commands page" VerticalAlignment="Center" FontSize="26"/>
+        <ScrollViewer>
+            <TextBlock Width="Auto" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" Text="Here's a list of console commands and their usage:
+&#x0a;&#x0a;Hyperspace is required to use these.
+&#x0a;In order to use these, go to anywhere in-game where you can control crew, and hit 'L' (by default) to open the console.
+&#x0a;&#x26AB;EVENT EVENT_NAME: Attempts to run an event. Will fail if the event is unique and has already been ran in the sector.
+&#x0a;&#x26AB;LOAD SHIP_ID SECTOR_STRENGTH: Loads a hostile enemy ship of type SHIP_ID with scaling equal to the number you use for SECTOR_STRENGTH.
+&#x0a;&#x26AB;ACH ACHIEVEMENT_ID: Instantly unlocks an achievement; achievement IDs can be found in the modding guide.
+&#x0a;&#x26AB;SECTOR SECTOR_TYPE: Instantly go to a sector with the ID SECTOR_TYPE.
+&#x0a;&#x26AB;SHIP BLUEPRINT_NAME: Unlocks a player ship (from the original ship list).
+&#x0a;&#x26AB;SHIP_CUSTOM BLUEPRINT_NAME: Unlocks a player ship from within Hyperspace's extended ship list.
+&#x0a;&#x26AB;WEAPON BLUEPRINT_NAME: Adds a weapon to your ship/cargo.
+&#x0a;&#x26AB;DRONE BLUEPRINT_NAME: Adds a drone to your ship/cargo.
+&#x0a;&#x26AB;SCRAP NUMBER: Gives (or takes away, if negative) a certain amount of scrap.
+&#x0a;&#x26AB;DRONES NUMBER: Gives (or takes away, if negative) a certain amount of drone parts.
+&#x0a;&#x26AB;FUEL NUMBER: Gives (or takes away, if negative) a certain amount of fuel.
+&#x0a;&#x26AB;MISSILES NUMBER: Gives (or takes away, if negative) a certain amount of missiles.
+&#x0a;&#x26AB;RICH: Gives 80 of every resource, and 1999 scrap.
+&#x0a;&#x26AB;GOD: Fully upgrades all systems currently on the ship and the reactor to max.
+&#x0a;&#x26AB;DELETE: Instantly destroys the enemy ship (if present).
+&#x0a;&#x26AB;SYS SYSTEM_ID: Adds a system to your ship. System IDs can be found in the modding guide.
+&#x0a;&#x26AB;AUG BLUEPRINT_ID: Adds an augment to your ship.
+&#x0a;&#x26AB;CREW RACE_NAME: Instantly spawns a crew member on your ship of type RACE_NAME.
+&#x0a;&#x26AB;EXIT: Instantly turns your current beacon into an exit beacon, and opens up the exit screen.
+&#x0a;&#x26AB;STORE SECTOR_NUMBER: Instantly spawns a non-Hyperspace store at your location, with scaling based on the sector number provided.
+&#x0a;&#x26AB;KILL CREW_NAME: Instantly kills a crew member on your ship with the given name, friend or foe." VerticalAlignment="Center" Margin="0,25,0,0" FontSize="26" Height="Auto"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>

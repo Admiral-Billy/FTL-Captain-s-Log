@@ -47,7 +47,7 @@
             <Button Content="Sounds" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="75" Click="Sounds_Click"/>
             <Button Content="Lists" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="75" Click="Lists_Click"/>
             <Button Content="Commands" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="Commands_Click"/>
-            <Button Content="Mod Guide" HorizontalAlignment="Left" Margin="10,0,0,35" VerticalAlignment="Bottom" Width="75" Click="Guide_Click"/>
+            <Button Content="XML Guide" HorizontalAlignment="Left" Margin="10,0,0,35" VerticalAlignment="Bottom" Width="75" Click="Guide_Click"/>
         </Grid>
         <Grid Name="options" Background="Black" Width="300" Margin="25,20,0,0" HorizontalAlignment="Left">
             <Button Content="Rescan FTL.dat (This will take some time)" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="234" Click="Rescan_Click"/>
