@@ -224,8 +224,8 @@ namespace FTL_Captain_s_Log
         public Event questEvent;
         public Ship ship;
         public bool hostile = false;
-        public AutoRewardType autoRewardType = AutoRewardType.standard;
-        public AutoRewardAmount autoRewardAmount = AutoRewardAmount.MED;
+        public AutoRewardType? autoRewardType = null;
+        public AutoRewardAmount? autoRewardAmount = null;
         public bool stealResources = false;
         public int scrapModifierMin = 0;
         public int scrapModifierMax = 0;
@@ -252,10 +252,10 @@ namespace FTL_Captain_s_Log
         public int boardersMin = 0;
         public int boardersMax = 0;
         public string boardersRace = "";
-        public SystemType upgradeSystem;
+        public SystemType? upgradeSystem;
         public int upgradeSystemAmount = 0;
-        public SystemType installSystem;
-        public EnvironmentType environmentType;
+        public SystemType? installSystem;
+        public EnvironmentType? environmentType;
         public bool revealMap = false;
         public bool distressBeacon = false;
         public bool spawnStore = false;

@@ -299,6 +299,32 @@ namespace FTL_Captain_s_Log
                                         {
                                             FTLevent.eventText = reader.ReadElementContentAsString();
                                         }
+                                        else if (reader.Name == "weapon" && reader.Depth == 2)
+                                        {
+                                            string blueprintName = reader.GetAttribute("name");
+                                            Weapon weapon = null;
+                                            if (blueprintName != null)
+                                            {
+                                                bool weaponFound = false;
+                                                for (int j = 0; j < allWeapons.Count; ++j)
+                                                {
+                                                    if (blueprintName == allWeapons[j].blueprintName)
+                                                    {
+                                                        weapon = allWeapons[j];
+                                                        weaponFound = true;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!weaponFound)
+                                                {
+                                                    weapon = new Weapon();
+                                                    weapon.weaponName = "Invalid Weapon/Weapon list";
+                                                    weapon.blueprintName = blueprintName;
+                                                }
+                                            }
+                                            FTLevent.weaponReward = weapon;
+                                            reader.Read();
+                                        }
                                         else
                                         {
                                             reader.Read();

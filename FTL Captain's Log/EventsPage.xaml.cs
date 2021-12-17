@@ -41,7 +41,12 @@ namespace FTL_Captain_s_Log
 
                 newText += FTLevent.eventText;
 
-                newText += "\n\n(PLACEHOLDER) Rewards: 20 scrap, 2 missiles, 2 fuel, and Havoceizer (weapon).";
+                if (FTLevent.autoRewardType != null || FTLevent.augmentReward != null || FTLevent.weaponReward != null || FTLevent.droneReward != null || FTLevent.crewReward != null)
+                { // TODO: add all the other reward types, since there's a lot
+                    newText += "\n\n Rewards/Losses:";
+                    if (FTLevent.weaponReward != null)
+                        newText += "\nWeapon reward: " + FTLevent.weaponReward.weaponName + " (" + FTLevent.weaponReward.blueprintName + ")";
+                }
 
                 EventText.Text = newText;
             }
