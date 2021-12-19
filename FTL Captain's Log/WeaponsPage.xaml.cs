@@ -67,6 +67,9 @@ namespace FTL_Captain_s_Log
                 }
                 Weapon weapon = sorted[WeaponBox.SelectedIndex];
 
+                if (weapon.description != "")
+                    newText += weapon.description + "\n\n";
+
                 if (weapon.cooldown >= 0)
                 newText += "Weapon Type: " + weapon.weaponType.ToString() + "\n\n";
 

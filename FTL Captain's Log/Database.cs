@@ -299,6 +299,46 @@ namespace FTL_Captain_s_Log
                                         {
                                             FTLevent.eventText = reader.ReadElementContentAsString();
                                         }
+                                        else if (reader.Name == "item_modify" && reader.Depth == 2)
+                                        {
+                                            if (reader.GetAttribute("steal") == "true")
+                                            {
+                                                FTLevent.stealResources = true;
+                                            }
+                                            reader.Read(); // read to the start of item modifying
+                                            bool doneModifying = false;
+                                            while (!doneModifying)
+                                            {
+                                                if (reader.Name == "item")
+                                                {
+                                                    if (reader.GetAttribute("type") == "scrap")
+                                                    {
+                                                        FTLevent.scrapModifierMin = int.Parse(reader.GetAttribute("min"));
+                                                        FTLevent.scrapModifierMax = int.Parse(reader.GetAttribute("max"));
+                                                    }
+                                                    else if (reader.GetAttribute("type") == "fuel")
+                                                    {
+                                                        FTLevent.fuelModifierMin = int.Parse(reader.GetAttribute("min"));
+                                                        FTLevent.fuelModifierMax = int.Parse(reader.GetAttribute("max"));
+                                                    }
+                                                    else if (reader.GetAttribute("type") == "missiles")
+                                                    {
+                                                        FTLevent.missilesModifierMin = int.Parse(reader.GetAttribute("min"));
+                                                        FTLevent.missilesModifierMax = int.Parse(reader.GetAttribute("max"));
+                                                    }
+                                                    else if (reader.GetAttribute("type") == "drones")
+                                                    {
+                                                        FTLevent.dronePartsModifierMin = int.Parse(reader.GetAttribute("min"));
+                                                        FTLevent.dronePartsModifierMax = int.Parse(reader.GetAttribute("max"));
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    doneModifying = true;
+                                                }
+                                                reader.Read();
+                                            }
+                                        }
                                         else if (reader.Name == "weapon" && reader.Depth == 2)
                                         {
                                             string blueprintName = reader.GetAttribute("name");
@@ -323,6 +363,32 @@ namespace FTL_Captain_s_Log
                                                 }
                                             }
                                             FTLevent.weaponReward = weapon;
+                                            reader.Read();
+                                        }
+                                        else if (reader.Name == "drone" && reader.Depth == 2)
+                                        {
+                                            string blueprintName = reader.GetAttribute("name");
+                                            Drone drone = null;
+                                            if (blueprintName != null)
+                                            {
+                                                bool weaponFound = false;
+                                                for (int j = 0; j < allDrones.Count; ++j)
+                                                {
+                                                    if (blueprintName == allDrones[j].blueprintName)
+                                                    {
+                                                        drone = allDrones[j];
+                                                        weaponFound = true;
+                                                        break;
+                                                    }
+                                                }
+                                                if (!weaponFound)
+                                                {
+                                                    drone = new Drone();
+                                                    drone.droneName = "Invalid Weapon/Weapon list";
+                                                    drone.blueprintName = blueprintName;
+                                                }
+                                            }
+                                            FTLevent.droneReward = drone;
                                             reader.Read();
                                         }
                                         else

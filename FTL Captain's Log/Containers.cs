@@ -91,7 +91,11 @@ namespace FTL_Captain_s_Log
 
     public class Drone
     {
-
+        public string blueprintName = "";
+        public string droneName = "";
+        public string droneNameId = "";
+        public string description = "";
+        public string descriptionId = "";
     }
 
     public class Augment

@@ -7,9 +7,11 @@
              xmlns:input="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Background="#1E1E1E">
-        <TextBlock Name="WeaponStats" Foreground="White" HorizontalAlignment="Center" Margin="0,250,0,0" TextWrapping="Wrap" Text="Welcome to the Weapons Page. Select a weapon to see its stats!" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox Name="WeaponBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="730" Margin="0,200,0,0" IsEditable="True" SelectionChanged="Weapon_Selected"/>
-        <CheckBox Name="UseBlueprint" Content="Search by blueprint name" Foreground="White" HorizontalAlignment="Center" Margin="900,204,0,0" VerticalAlignment="Top" Checked="Use_Blueprint" Unchecked="Use_Name"/>
-    </Grid>
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid Background="#1E1E1E">
+            <TextBlock Name="WeaponStats" Width="1000" TextAlignment="Center" Foreground="White" HorizontalAlignment="Center" Margin="0,100,0,10" TextWrapping="Wrap" Text="Welcome to the Weapons Page. Select a weapon to see its stats!" VerticalAlignment="Top" FontSize="16"/>
+            <ComboBox Name="WeaponBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="730" Margin="0,50,0,0" IsEditable="True" SelectionChanged="Weapon_Selected"/>
+            <CheckBox Name="UseBlueprint" Content="Search by blueprint name" Foreground="White" HorizontalAlignment="Center" Margin="900,54,10,0" VerticalAlignment="Top" Checked="Use_Blueprint" Unchecked="Use_Name"/>
+        </Grid>
+    </Viewbox>
 </UserControl>

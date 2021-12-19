@@ -39,13 +39,79 @@ namespace FTL_Captain_s_Log
                 sorted = Database.allEvents.OrderBy(eventName => eventName.eventName).ToArray();
                 Event FTLevent = sorted[EventBox.SelectedIndex];
 
-                newText += FTLevent.eventText;
+                if (FTLevent.eventText != "")
+                {
+                    newText += FTLevent.eventText;
+                }
+                else
+                {
+                    newText += "This event has no text, and thus doesn't actually show up on screen.";
+                }
 
-                if (FTLevent.autoRewardType != null || FTLevent.augmentReward != null || FTLevent.weaponReward != null || FTLevent.droneReward != null || FTLevent.crewReward != null)
+                if (FTLevent.autoRewardType != null 
+                    || FTLevent.augmentReward != null 
+                    || FTLevent.weaponReward != null 
+                    || FTLevent.droneReward != null 
+                    || FTLevent.crewReward != null 
+                    || FTLevent.scrapModifierMin != 0 || FTLevent.scrapModifierMax != 0
+                    || FTLevent.fuelModifierMin != 0 || FTLevent.fuelModifierMax != 0
+                    || FTLevent.missilesModifierMin != 0 || FTLevent.missilesModifierMax != 0
+                    || FTLevent.dronePartsModifierMin != 0 || FTLevent.dronePartsModifierMax != 0)
                 { // TODO: add all the other reward types, since there's a lot
-                    newText += "\n\n Rewards/Losses:";
+                    newText += "\n\nRewards/Losses:";
+                    if (FTLevent.scrapModifierMin != 0 || FTLevent.scrapModifierMax != 0)
+                    {
+                        if (FTLevent.scrapModifierMin == FTLevent.scrapModifierMax)
+                        {
+                            newText += "\nScrap change: " + FTLevent.scrapModifierMin;
+                        }
+                        else
+                        {
+                            newText += "\nScrap change: " + FTLevent.scrapModifierMin + " to " + FTLevent.scrapModifierMax;
+                        }
+                    }
+                    if (FTLevent.fuelModifierMin != 0 || FTLevent.fuelModifierMax != 0)
+                    {
+                        if (FTLevent.fuelModifierMin == FTLevent.fuelModifierMax)
+                        {
+                            newText += "\nFuel change: " + FTLevent.fuelModifierMin;
+                        }
+                        else
+                        {
+                            newText += "\nFuel change: " + FTLevent.fuelModifierMin + " to " + FTLevent.fuelModifierMax;
+                        }
+                    }
+                    if (FTLevent.missilesModifierMin != 0 || FTLevent.missilesModifierMax != 0)
+                    {
+                        if (FTLevent.missilesModifierMin == FTLevent.missilesModifierMax)
+                        {
+                            newText += "\nMissiles change: " + FTLevent.missilesModifierMin;
+                        }
+                        else
+                        {
+                            newText += "\nMissiles change: " + FTLevent.missilesModifierMin + " to " + FTLevent.missilesModifierMax;
+                        }
+                    }
+                    if (FTLevent.dronePartsModifierMin != 0 || FTLevent.dronePartsModifierMax != 0)
+                    {
+                        if (FTLevent.dronePartsModifierMin == FTLevent.dronePartsModifierMax)
+                        {
+                            newText += "\nDrone parts change: " + FTLevent.dronePartsModifierMin;
+                        }
+                        else
+                        {
+                            newText += "\nDrone parts change: " + FTLevent.dronePartsModifierMin + " to " + FTLevent.dronePartsModifierMax;
+                        }
+                    }
                     if (FTLevent.weaponReward != null)
                         newText += "\nWeapon reward: " + FTLevent.weaponReward.weaponName + " (" + FTLevent.weaponReward.blueprintName + ")";
+                    if (FTLevent.augmentReward != null)
+                        newText += "Wut";
+                    if (FTLevent.droneReward != null)
+                        newText += "Wut";
+                    if (FTLevent.crewReward != null)
+                        newText += "Wut";
+
                 }
 
                 EventText.Text = newText;
