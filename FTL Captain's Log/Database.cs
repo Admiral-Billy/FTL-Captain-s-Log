@@ -391,6 +391,53 @@ namespace FTL_Captain_s_Log
                                             FTLevent.droneReward = drone;
                                             reader.Read();
                                         }
+                                        else if (reader.Name == "choice" && reader.Depth == 2)
+                                        {
+                                            Choice choice = new Choice();
+                                            if (reader.GetAttribute("hidden") == "true")
+                                            {
+                                                choice.hidden = true;
+                                            }
+                                            if (reader.GetAttribute("req") != null)
+                                            {
+                                                choice.req = reader.GetAttribute("req");
+                                            }
+                                            if (reader.GetAttribute("blue") == "true")
+                                            {
+                                                choice.blue = true;
+                                            }
+                                            if (reader.GetAttribute("lvl") != null)
+                                            {
+                                                choice.minReqLevel = int.Parse(reader.GetAttribute("lvl"));
+                                            }
+                                            if (reader.GetAttribute("max_lvl") != null)
+                                            {
+                                                choice.maxReqLevel = int.Parse(reader.GetAttribute("max_lvl"));
+                                            }
+                                            if (reader.GetAttribute("max_group") != null)
+                                            {
+                                                choice.maxGroup = int.Parse(reader.GetAttribute("max_group"));
+                                            }
+                                            reader.Read();
+                                            bool doneWithChoice = false;
+                                            while (!doneWithChoice)
+                                            {
+                                                if (reader.Name == "text")
+                                                {
+                                                    choice.text = reader.ReadElementContentAsString();
+                                                }
+                                                // parse recursive events here
+
+
+                                                reader.Read();
+                                                // check for exit
+
+
+
+                                                doneWithChoice = true;
+                                            }
+                                            FTLevent.choices.Add(choice);
+                                        }
                                         else
                                         {
                                             reader.Read();
@@ -424,7 +471,7 @@ namespace FTL_Captain_s_Log
                 }
                 catch (XmlException e)
                 {
-                    // invalid file, but that's fine
+                    // invalid file, but that's fine; the game wouldn't run it anyways, so we don't care very much
                 }
 
                 //reader = XmlReader.Create(".\\Unpacker\\unpackedFiles\\data\\hyperspace.xml", settings);

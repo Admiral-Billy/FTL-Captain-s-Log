@@ -111,7 +111,19 @@ namespace FTL_Captain_s_Log
                         newText += "Wut";
                     if (FTLevent.crewReward != null)
                         newText += "Wut";
+                }
 
+                if (FTLevent.choices.Count != 0)
+                {
+                    newText += "\n\nChoices:";
+                    for (int i = 0; i < FTLevent.choices.Count; ++i)
+                    {
+                        newText += "\nChoice " + (i + 1) + ": " + FTLevent.choices[i].text;
+                    }
+                }
+                else if (FTLevent.eventText != "")
+                {
+                    newText += "\n\nChoices:\nChoice 1: Continue..."; // default text for an event that has no choices but has text, choice immediately ends event
                 }
 
                 EventText.Text = newText;
